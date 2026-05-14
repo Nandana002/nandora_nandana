@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 5 5 5;
+  --foreground: 250 250 250;
+  --crimson: 139 0 0;
+  --gold: 197 160 89;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground overflow-x-hidden selection:bg-crimson selection:text-white;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "salt";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display tracking-tighter leading-[1.05];
+  }
+}
+
+/* Premium Typography Utility */
+.text-luxury {
+  @apply tracking-[0.15em] font-bold uppercase text-[10px];
+}
+
+/* Advanced Glassmorphism */
+.glass {
+  @apply bg-white/[0.03] backdrop-blur-3xl border border-white/10 shadow-glass;
+}
+
+.glass-dark {
+  @apply bg-black/60 backdrop-blur-3xl border border-white/[0.05] shadow-premium;
+}
+
+.glass-interactive {
+  @apply glass transition-all duration-500 hover:bg-white/[0.06] hover:border-white/20;
+}
+
+/* Cinematic Shadows & Glows */
+.shadow-glow-crimson {
+  box-shadow: 0 0 60px -20px rgba(139, 0, 0, 0.3);
+}
+
+.shadow-glow-gold {
+  box-shadow: 0 0 60px -20px rgba(197, 160, 89, 0.2);
+}
+
+.glow-text-gold {
+  text-shadow: 0 0 8px rgba(197, 160, 89, 0.4);
+}
+
+/* Premium Button Physics */
+.btn-premium {
+  @apply relative px-6 py-3.5 rounded-xl font-bold uppercase tracking-[0.2em] text-[9px] transition-all duration-500 overflow-hidden active:scale-95 disabled:opacity-50;
+}
+
+.btn-crimson {
+  @apply btn-premium bg-crimson text-white shadow-glow-crimson hover:bg-crimson-light hover:scale-105;
+}
+
+.btn-gold {
+  @apply btn-premium bg-gold text-black shadow-glow-gold hover:bg-gold-light hover:scale-105;
+}
+
+.btn-outline {
+  @apply btn-premium border border-white/10 text-white hover:bg-white/5 hover:border-white/30;
+}
+
+/* Section Spacing System */
+.section-padding {
+  @apply py-16 md:py-24;
+}
+
+/* Noise Texture Overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 99999;
+  opacity: 0.03;
+  background-image: url("https://res.cloudinary.com/dzvk7vpk8/image/upload/v1715671234/noise_texture_p8r9y8.png");
+  background-repeat: repeat;
+}
+
+/* Premium Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-crimson/30 rounded-full hover:bg-crimson transition-all;
+}
+
+/* Heading Sizes */
+.heading-huge {
+  @apply text-5xl md:text-[6rem] lg:text-[8rem] font-bold tracking-tighter leading-[0.85] text-balance;
+}
+
+.heading-sub {
+  @apply text-2xl md:text-4xl font-display text-white/90 tracking-tight;
+}
+
+/* Responsive Image Polish */
+.img-premium {
+  @apply grayscale hover:grayscale-0 transition-all duration-700 scale-105 hover:scale-100;
+}
