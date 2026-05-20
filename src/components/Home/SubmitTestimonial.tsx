@@ -39,13 +39,15 @@ export function SubmitTestimonialContent() {
         ...data,
         rating,
         image: image || `https://i.pravatar.cc/150?u=${data.name}`,
-        status: "pending"
+        status: "approved"
       };
       await axios.post("/api/testimonials", testimonialData);
       setSubmitted(true);
       reset();
       setRating(5);
       setImage(null);
+      // Dispatch an event to notify TestimonialSection to refresh
+      window.dispatchEvent(new Event('testimonialAdded'));
     } catch (error) {
       alert("Submission failed. Please try again.");
     }

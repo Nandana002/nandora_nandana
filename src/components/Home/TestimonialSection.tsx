@@ -12,6 +12,14 @@ export default function TestimonialSection() {
 
   useEffect(() => {
     fetchTestimonials();
+
+    // Listen for new testimonials being added
+    const handleNewTestimonial = () => fetchTestimonials();
+    window.addEventListener('testimonialAdded', handleNewTestimonial);
+    
+    return () => {
+      window.removeEventListener('testimonialAdded', handleNewTestimonial);
+    };
   }, []);
 
   const fetchTestimonials = async () => {
